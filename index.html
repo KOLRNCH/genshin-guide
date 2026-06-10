@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genshin Impact — Ultimate Guide 2026</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:#0a0a14;color:#e0e0e0;line-height:1.6}
+
+/* Language Toggle */
+.lang-bar{background:#12122a;border-bottom:1px solid rgba(255,255,255,0.06);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.lang-bar h3{color:#f7b731;font-size:15px;font-weight:700;letter-spacing:1px}
+.lang-btn{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:#aaa;padding:7px 18px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;transition:all .2s}
+.lang-btn.active{background:#f7b731;color:#0a0a14;border-color:#f7b731}
+.lang-btn:hover{background:rgba(247,183,49,0.2)}
+.lang-btn+.lang-btn{margin-left:8px}
+[data-lang] .ru-only{display:var(--ru-display,none)}
+[data-lang] .en-only{display:var(--en-display,none)}
+[data-lang="ru"]{--ru-display:block;--en-display:none}
+[data-lang="en"]{--ru-display:none;--en-display:block}
+
+/* Cover */
+.cover{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;position:relative;overflow:hidden}
+.cover::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 50%,rgba(100,180,255,0.08) 0%,transparent 50%),radial-gradient(circle at 70% 50%,rgba(180,130,255,0.06) 0%,transparent 50%);animation:pulse 8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+.cover-badge{background:linear-gradient(90deg,#f7b731,#f5a623);color:#0a0a14;padding:8px 28px;border-radius:20px;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;z-index:1}
+.cover h1{font-family:'Georgia',serif;font-size:clamp(32px,7vw,64px);font-weight:800;color:#fff;margin-top:24px;z-index:1;background:linear-gradient(135deg,#f7b731,#ffd700,#f5a623);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.cover h2{font-size:clamp(16px,2.5vw,28px);color:#8899bb;margin-top:10px;font-weight:300;z-index:1}
+.cover-line{width:80px;height:3px;background:linear-gradient(90deg,#f7b731,transparent);margin:24px auto;z-index:1}
+.cover-meta{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;z-index:1;margin-top:8px}
+.cover-meta span{color:#667799;font-size:13px}
+.cover-meta strong{color:#aabbdd;font-weight:600}
+
+/* Content wrapper */
+.wrapper{max-width:940px;margin:0 auto;padding:0 20px 80px}
+
+/* Section */
+.section{margin-bottom:60px}
+.section-header{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.section-num{background:linear-gradient(135deg,#f7b731,#f5a623);color:#0a0a14;width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex-shrink:0}
+.section h2{font-size:24px;font-weight:700;color:#fff}
+.section h3{font-size:18px;font-weight:600;color:#f7b731;margin:24px 0 10px}
+.section h4{font-size:15px;font-weight:600;color:#99bbdd;margin:16px 0 6px}
+.section p{margin-bottom:12px;color:#bbb;font-size:14px}
+.section ul,.section ol{margin:8px 0 12px 22px;color:#bbb;font-size:14px}
+
+/* Tier */
+.tier-block{margin-bottom:28px}
+.tier-label{display:inline-block;padding:3px 14px;border-radius:6px;font-weight:800;font-size:12px;letter-spacing:1px;margin-bottom:10px}
+.tier-splus{background:linear-gradient(90deg,#ff6b35,#f7b731);color:#0a0a14}
+.tier-s{background:linear-gradient(90deg,#f7b731,#ffd700);color:#0a0a14}
+.tier-a{background:linear-gradient(90deg,#4ecdc4,#44b09e);color:#0a0a14}
+.tier-b{background:linear-gradient(90deg,#6c5ce7,#a29bfe);color:#fff}
+.tier-c{background:linear-gradient(90deg,#636e72,#b2bec3);color:#fff}
+
+.char-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.char-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:8px 10px;display:flex;align-items:center;gap:8px;transition:all .2s;cursor:default;min-height:48px}
+.char-card:hover{background:rgba(255,255,255,0.07);border-color:rgba(247,183,49,0.3)}
+.char-icon-wrap{width:32px;height:32px;flex-shrink:0;position:relative}
+.char-icon-wrap img{width:32px;height:32px;border-radius:6px;background:rgba(255,255,255,0.05);display:block}
+.char-icon-wrap .fallback{display:none;width:32px;height:32px;border-radius:6px;background:rgba(255,255,255,0.06);color:#f7b731;font-weight:800;font-size:13px;align-items:center;justify-content:center;text-transform:uppercase;position:absolute;top:0;left:0}
+.char-info{overflow:hidden;min-width:0}
+.char-name{font-weight:600;color:#ddd;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.char-role{font-size:10px;color:#666;margin-top:1px}
+
+/* Tables */
+table{width:100%;border-collapse:collapse;margin:12px 0 20px;font-size:13px}
+thead th{background:rgba(247,183,49,0.08);color:#f7b731;padding:8px 12px;text-align:left;font-weight:600;border-bottom:2px solid #f7b73122;font-size:12px}
+tbody td{padding:7px 12px;border-bottom:1px solid rgba(255,255,255,0.03);color:#bbb;font-size:13px}
+tbody tr:hover{background:rgba(255,255,255,0.02)}
+
+/* Build card */
+.build-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;margin-bottom:18px;position:relative}
+.build-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#f7b731,#f5a623);border-radius:3px 0 0 3px}
+.build-card h4{margin:0 0 8px;color:#fff;font-size:15px}
+.build-card td:first-child{font-weight:600;color:#99bbdd;width:160px}
+
+/* Team card */
+.team-card{background:rgba(247,183,49,0.04);border:1px solid rgba(247,183,49,0.12);border-radius:10px;padding:16px 20px;margin-bottom:14px}
+.team-card h4{color:#f7b731;margin:0 0 8px;font-size:14px}
+.team-members{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:6px}
+.team-member{display:flex;align-items:center;gap:8px;font-size:13px;color:#ccc;min-height:36px}
+.team-member .icon-wrap{width:28px;height:28px;flex-shrink:0;position:relative}
+.team-member .icon-wrap img{width:28px;height:28px;border-radius:6px;display:block}
+.team-member .icon-wrap .fallback{display:none;width:28px;height:28px;border-radius:6px;background:rgba(255,255,255,0.06);color:#f7b731;font-weight:800;font-size:11px;align-items:center;justify-content:center;text-transform:uppercase;position:absolute;top:0;left:0}
+
+/* Primogems */
+.primogems td:last-child{font-weight:700;color:#ffd700;text-align:right}
+.total-row{border-top:2px solid #f7b73133}
+.total-row td{font-weight:700;color:#ffd700;font-size:14px}
+
+/* Interactive Map */
+.map-section{background:rgba(20,20,40,0.5);border-radius:12px;padding:20px;border:1px solid rgba(255,255,255,0.06)}
+.map-section iframe{border-radius:8px;width:100%;height:480px;border:none;display:block}
+.map-controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.map-btn{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:#aaa;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:12px;transition:all .2s}
+.map-btn.active{background:rgba(247,183,49,0.15);border-color:#f7b73144;color:#f7b731}
+.map-btn:hover{background:rgba(247,183,49,0.1)}
+.map-hint{color:#667;font-size:12px;margin-top:8px}
+
+/* Tips */
+.tip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.tip-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:14px;display:flex;gap:10px}
+.tip-num{background:rgba(247,183,49,0.12);color:#f7b731;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;flex-shrink:0;margin-top:2px}
+.tip-card p{margin:0;font-size:12px;color:#999;line-height:1.5}
+.tip-card strong{color:#ddd;font-size:13px}
+
+/* Footer */
+.footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(255,255,255,0.06);color:#444;font-size:12px;max-width:940px;margin:0 auto}
+
+/* Badge */
+.el{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700}
+.el-pyro{background:rgba(255,100,50,0.12);color:#ff6432}
+.el-hydro{background:rgba(50,150,255,0.12);color:#3296ff}
+.el-anemo{background:rgba(100,200,150,0.12);color:#64c896}
+.el-cryo{background:rgba(150,200,255,0.12);color:#96c8ff}
+.el-dendro{background:rgba(100,200,50,0.12);color:#64c832}
+.el-electro{background:rgba(150,100,255,0.12);color:#9664ff}
+.el-geo{background:rgba(255,200,50,0.12);color:#ffc832}
+
+/* Accordion */
+.accordion summary{cursor:pointer;padding:12px 16px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;font-weight:600;color:#ddd;font-size:14px;list-style:none;transition:all .2s}
+.accordion summary::-webkit-details-marker{display:none}
+.accordion summary:hover{background:rgba(255,255,255,0.05)}
+.accordion[open] summary{border-radius:8px 8px 0 0;border-color:rgba(247,183,49,0.2)}
+.accordion-inner{padding:16px;border:1px solid rgba(255,255,255,0.06);border-top:none;border-radius:0 0 8px 8px}
+
+/* Print / PDF */
+@media print{
+  @page{margin:12mm 15mm;size:A4}
+  body{background:#fff;color:#222;font-size:11px;line-height:1.5}
+  .lang-bar,.cover-badge,.cover::before,.map-btn{display:none!important}
+  .cover{min-height:auto;padding:40px 0 20px}
+  .cover h1{-webkit-text-fill-color:#c90;color:#c90;font-size:32px;margin-top:10px}
+  .cover h2{font-size:18px;color:#555}
+  .cover-meta span{color:#666;font-size:10px;gap:8px}
+  .cover-meta strong{color:#333}
+  .wrapper{padding:0 0 40px;max-width:100%}
+  .section{margin-bottom:24px;page-break-inside:avoid}
+  .section h2{font-size:16px;color:#222}
+  .section h3{font-size:14px;color:#c90}
+  .section p{color:#444;font-size:10px}
+  .section-num{width:24px;height:24px;font-size:11px}
+  .char-card{background:#f8f8f8;border-color:#ddd;padding:4px 8px;min-height:32px}
+  .char-icon-wrap,.char-icon-wrap img,.char-icon-wrap .fallback{width:22px;height:22px}
+  .char-icon-wrap .fallback{font-size:9px;display:flex!important}
+  .char-icon-wrap img{display:none!important}
+  .char-name{font-size:10px;color:#333}
+  .el{font-size:8px;padding:1px 5px}
+  table{font-size:10px}
+  thead th{background:#f0c910;color:#222;font-size:9px;padding:4px 8px}
+  tbody td{color:#333;padding:3px 8px;border-color:#eee}
+  .build-card{background:#fafafa;border-color:#ddd;padding:8px 12px;margin-bottom:10px}
+  .build-card::before{display:none}
+  .build-card td:first-child{width:120px;color:#555;font-size:9px}
+  .team-card{background:#fef6e0;border-color:#e0c060;padding:8px 12px;margin-bottom:8px}
+  .team-card h4{font-size:11px;color:#960}
+  .team-members{grid-template-columns:1fr 1fr;gap:4px}
+  .team-member{font-size:10px;color:#333;min-height:auto}
+  .team-member .icon-wrap,.team-member .icon-wrap .fallback{width:20px;height:20px;font-size:8px}
+  .team-member .icon-wrap img{display:none!important}
+  .team-member .icon-wrap .fb{display:flex!important}
+  .map-section{border-color:#ddd;padding:12px;page-break-inside:avoid}
+  .map-section iframe{display:none}
+  .accordion summary{background:#f8f8f8;border-color:#ddd;color:#333;font-size:11px;padding:6px 10px;cursor:default}
+  .accordion[open] summary{border-radius:8px;border-color:#ddd}
+  .accordion-inner{padding:8px 10px;border-color:#ddd}
+  .accordion summary .icon-wrap .fb{display:flex!important}
+  .accordion summary .icon-wrap img{display:none!important}
+  .icon-wrap{width:20px!important;height:20px!important}
+  .icon-wrap .fb{font-size:8px!important;width:20px!important;height:20px!important}
+  .tip-grid{grid-template-columns:1fr 1fr;gap:6px}
+  .tip-card{background:#f8f8f8;border-color:#ddd;padding:8px}
+  .tip-card p{font-size:9px;color:#555}
+  .tip-card strong{font-size:10px;color:#333}
+  .tip-num{width:18px;height:18px;font-size:9px}
+  .footer{color:#999;font-size:9px;padding:20px 0}
+  .primogems td:last-child{color:#c90}
+  .total-row td{color:#c90;font-size:11px}
+  .map-hint{color:#666;font-size:9px}
+  a[href]{color:#06c!important;text-decoration:underline!important}
+  .accordion summary::-webkit-details-marker{display:none}
+  details.accordion[open]{page-break-inside:avoid}
+}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#0a0a14}
+::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:#555}
+
+/* Responsive */
+@media(max-width:900px){
+  .cover h1{font-size:clamp(24px,6vw,40px)}
+  .cover h2{font-size:clamp(14px,2.5vw,22px)}
+}
+@media(max-width:768px){
+  .wrapper{padding:0 14px 60px}
+  .char-grid{grid-template-columns:repeat(3,1fr)}
+  .cover-meta{font-size:11px;gap:10px}
+  .map-section iframe{height:360px}
+  .tip-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .char-grid{grid-template-columns:repeat(2,1fr)}
+  .char-card{padding:6px 8px;min-height:40px}
+  .char-icon-wrap,.char-icon-wrap img,.char-icon-wrap .fallback{width:28px;height:28px}
+  .char-icon-wrap .fallback{font-size:11px}
+  .team-members{grid-template-columns:1fr}
+  .map-section iframe{height:260px}
+  .map-section{padding:12px}
+  .map-controls{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}
+  .map-btn{white-space:nowrap;font-size:11px;padding:5px 10px;flex-shrink:0}
+  .cover{padding:20px 14px;min-height:80vh}
+  .cover h1{font-size:24px}
+  .cover-line{margin:16px auto}
+  .cover-meta{font-size:10px;gap:6px}
+  .cover-meta span{font-size:11px}
+  .lang-bar{padding:8px 12px}
+  .lang-btn{font-size:11px;padding:5px 12px}
+  .section{margin-bottom:36px}
+  .section-header{margin-bottom:14px}
+  .section h2{font-size:18px}
+  .section h3{font-size:16px}
+  table{font-size:12px}
+  thead th,tbody td{padding:6px 8px}
+  .build-card{padding:12px 14px}
+  .team-card{padding:12px 14px}
+  .accordion summary{padding:10px 12px;font-size:13px}
+  .accordion-inner{padding:12px}
+  .char-name{font-size:12px}
+  .el{font-size:9px;padding:1px 6px}
+  .footer{padding:24px 14px}
+  .cover-badge{font-size:10px;padding:5px 16px}
+}
+</style>
+</head>
+<body data-lang="ru">
+
+<!-- Language Bar -->
+<div class="lang-bar">
+  <h3>✦ Genshin Guide 2026</h3>
+  <div>
+    <button class="lang-btn active" onclick="switchLang('ru')">Русский</button>
+    <button class="lang-btn" onclick="switchLang('en')">English</button>
+  </div>
+</div>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-badge ru-only">Актуальная мета 6.6</div>
+  <div class="cover-badge en-only">Updated for 6.6</div>
+  <h1>Genshin Impact</h1>
+  <h2 class="ru-only">Полный гайд. Версия 6.6 — Nod-Krai</h2>
+  <h2 class="en-only">Complete Guide. Version 6.6 — Nod-Krai</h2>
+  <div class="cover-line"></div>
+  <div class="cover-meta">
+    <span class="ru-only">Тир-лист <strong>S+ → C</strong></span>
+    <span class="en-only">Tier List <strong>S+ → C</strong></span>
+    <span class="ru-only">Сборки <strong>35+ персонажей</strong></span>
+    <span class="en-only">Builds <strong>35+ characters</strong></span>
+    <span class="ru-only">Лунарные <strong>реакции</strong></span>
+    <span class="en-only">Lunar <strong>reactions</strong></span>
+    <span class="ru-only">Бездна <strong>6 команд</strong></span>
+    <span class="en-only">Abyss <strong>6 teams</strong></span>
+    <span class="ru-only">Примогемы <strong>~10K/мес</strong></span>
+    <span class="en-only">Primogems <strong>~10K/mo</strong></span>
+  </div>
+</div>
+
+<div class="wrapper">
+
+<!-- ====== 1. TIER LIST ====== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <h2 class="ru-only">Тир-лист персонажей</h2>
+    <h2 class="en-only">Character Tier List</h2>
+  </div>
+  <p class="ru-only">Рейтинг основан на частоте использования в Витой Бездне (версия 6.5-6.6). Учтены персонажи на C0.</p>
+  <p class="en-only">Based on Spiral Abyss usage rates (v6.5-6.6). All characters rated at C0.</p>
+
+  <div class="tier-block">
+    <div class="tier-label tier-splus">S+</div>
+    <div class="char-grid" id="tier-splus"></div>
+  </div>
+  <div class="tier-block">
+    <div class="tier-label tier-s">S</div>
+    <div class="char-grid" id="tier-s"></div>
+  </div>
+  <div class="tier-block">
+    <div class="tier-label tier-a">A</div>
+    <div class="char-grid" id="tier-a"></div>
+  </div>
+</div>
+
+<!-- ====== 2. BUILDS ====== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <h2 class="ru-only">Сборки топ-персонажей</h2>
+    <h2 class="en-only">Top Character Builds</h2>
+  </div>
+  <div id="builds-container"></div>
+</div>
+
+<!-- ====== 3. LUNAR ====== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <h2 class="ru-only">Лунарные реакции</h2>
+    <h2 class="en-only">Lunar Reactions</h2>
+  </div>
+  <p class="ru-only">С выходом Nod-Krai (6.x) добавлены Лунарные реакции. Требуют <strong>Lunar Aura</strong> от персонажей Nod-Krai.</p>
+  <p class="en-only">Added in Nod-Krai (6.x). Require <strong>Lunar Aura</strong> from Nod-Krai characters.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="ru-only">Реакция</th><th class="en-only">Reaction</th>
+        <th class="ru-only">Элементы</th><th class="en-only">Elements</th>
+        <th class="ru-only">Эффект</th><th class="en-only">Effect</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Lunarbloom</strong></td><td><span class="el el-dendro"><span class="ru-only">Дендро</span><span class="en-only">Dendro</span></span> + <span class="el el-hydro"><span class="ru-only">Гидро</span><span class="en-only">Hydro</span></span></td><td class="ru-only">Взрывающийся Lunar Bloom, AoE Дендро урон</td><td class="en-only">Explosive Lunar Bloom, AoE Dendro damage</td></tr>
+      <tr><td><strong>Lunar Crystallize</strong></td><td><span class="el el-geo"><span class="ru-only">Гео</span><span class="en-only">Geo</span></span></td><td class="ru-only">Лунарный кристалл → щит + бафф урона</td><td class="en-only">Lunar crystal → shield + damage buff</td></tr>
+      <tr><td><strong>Lunar Frost</strong></td><td><span class="el el-cryo"><span class="ru-only">Крио</span><span class="en-only">Cryo</span></span></td><td class="ru-only">Заморозка + дополнительный лунарный урон</td><td class="en-only">Freeze + bonus lunar damage</td></tr>
+      <tr><td><strong>Lunar Inferno</strong></td><td><span class="el el-pyro"><span class="ru-only">Пиро</span><span class="en-only">Pyro</span></span></td><td class="ru-only">Пиро-взрыв, игнорирует 30% защиты</td><td class="en-only">Pyro blast, ignores 30% DEF</td></tr>
+    </tbody>
+  </table>
+  <p class="ru-only"><strong>Ключевые персонажи:</strong> Nefer, Zibai, Columbina, Flins, Ineffa</p>
+  <p class="en-only"><strong>Key characters:</strong> Nefer, Zibai, Columbina, Flins, Ineffa</p>
+</div>
+
+<!-- ====== 4. TEAMS ====== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <h2 class="ru-only">Топ команды для Бездны</h2>
+    <h2 class="en-only">Best Spiral Abyss Teams</h2>
+  </div>
+  <div id="teams-container"></div>
+</div>
+
+<!-- ====== 5. PRIMOGEMS ====== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <h2 class="ru-only">Фарм примогемов</h2>
+    <h2 class="en-only">Primogem Farming</h2>
+  </div>
+
+  <table class="primogems">
+    <thead>
+      <tr>
+        <th class="ru-only">Источник</th><th class="en-only">Source</th>
+        <th class="ru-only">Примогемы/мес</th><th class="en-only">Primogems/mo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="ru-only">Ежедневные задания</td><td class="en-only">Daily Commissions</td><td>1 800</td></tr>
+      <tr><td class="ru-only">Витяя Бездна (36★)</td><td class="en-only">Spiral Abyss (36★)</td><td>1 800</td></tr>
+      <tr><td class="ru-only">Ивенты</td><td class="en-only">Events</td><td>2 000 – 3 000</td></tr>
+      <tr><td class="ru-only">Новые регионы (сундуки+телепорты)</td><td class="en-only">New areas (chests+waypoints)</td><td>~1 000</td></tr>
+      <tr><td class="ru-only">Технические работы / компенсации</td><td class="en-only">Maintenance / compensation</td><td>~600</td></tr>
+      <tr><td class="ru-only">Battle Pass (бесплатный)</td><td class="en-only">Battle Pass (free)</td><td class="ru-only">5 молитв</td><td class="en-only">5 Fates</td></tr>
+      <tr><td class="ru-only">Paimon's Bargains</td><td class="en-only">Paimon's Bargains</td><td class="ru-only">5 молитв</td><td class="en-only">5 Fates</td></tr>
+      <tr class="total-row"><td class="ru-only"><strong>Итого F2P</strong></td><td class="en-only"><strong>Total F2P</strong></td><td><strong>~8 000 – 10 000</strong></td></tr>
+      <tr class="total-row"><td class="ru-only"><strong>С BP + Welkin</strong></td><td class="en-only"><strong>With BP + Welkin</strong></td><td><strong>~14 000 – 16 000</strong></td></tr>
+    </tbody>
+  </table>
+  <p style="color:#667;font-size:13px" class="ru-only">180 примогемов = 1 молитва | 28 800 = хард-пити (180)</p>
+  <p style="color:#667;font-size:13px" class="en-only">180 primogems = 1 fate | 28 800 = hard pity (180)</p>
+</div>
+
+<!-- ====== 6. MAP ====== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <h2 class="ru-only">Интерактивная карта</h2>
+    <h2 class="en-only">Interactive Map</h2>
+  </div>
+  <p class="ru-only">Найди всё на Teyvat: окулусы, сундуки, ресурсы, боссов и квесты.</p>
+  <p class="en-only">Find everything on Teyvat: oculi, chests, resources, bosses & quests.</p>
+
+  <div class="map-section">
+    <div class="map-controls" id="mapControls">
+      <button class="map-btn active" onclick="setMapMarkers('Anemoculus,Geoculus,Electroculus,Dendroculus,Hydroculus,Pyroculus,Lunoculus')" data-type="oculi">
+        <span class="ru-only">Окулусы</span><span class="en-only">Oculi</span>
+      </button>
+      <button class="map-btn" onclick="setMapMarkers('Common Chest,Exquisite Chest,Precious Chest,Luxurious Chest,Remarkable Chest')" data-type="chests">
+        <span class="ru-only">Сундуки</span><span class="en-only">Chests</span>
+      </button>
+      <button class="map-btn" onclick="setMapMarkers('Crystal Chunk,Magical Crystal Chunk,White Iron Chunk,Starsilver,Amethyst Lump')" data-type="ore">
+        <span class="ru-only">Руда</span><span class="en-only">Ore</span>
+      </button>
+      <button class="map-btn" onclick="setMapMarkers('Teleport Waypoint,Statue of 7,Domain')" data-type="fasttravel">
+        <span class="ru-only">Телепорты</span><span class="en-only">Fast Travel</span>
+      </button>
+      <button class="map-btn" onclick="setMapMarkers('World Quests,Time Trial Challenge,Seelie')" data-type="quests">
+        <span class="ru-only">Квесты</span><span class="en-only">Quests</span>
+      </button>
+      <button class="map-btn" onclick="setMapMarkers('')" data-type="all">
+        <span class="ru-only">Всё</span><span class="en-only">All</span>
+      </button>
+    </div>
+    <iframe id="interactiveMap" src="https://genshin-impact-map.appsample.com/location?names=Anemoculus,Geoculus,Electroculus,Dendroculus,Hydroculus,Pyroculus,Lunoculus&no_heading=1" loading="lazy" title="Genshin Interactive Map"></iframe>
+    <div style="text-align:center;margin-top:8px">
+      <a href="https://genshin-impact-map.appsample.com/" target="_blank" rel="noopener" style="color:#f7b731;font-size:13px;text-decoration:none">
+        <span class="ru-only">🗺 Открыть карту на весь экран →</span>
+        <span class="en-only">🗺 Open fullscreen map →</span>
+      </a>
+    </div>
+    <div class="map-hint">
+      <span class="ru-only">💡 На телефоне если карта не отображается — открой ссылку выше в браузере.</span>
+      <span class="en-only">💡 On mobile if the map doesn't load — use the link above.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 7. NEW CHARACTERS ====== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">7</div>
+    <h2 class="ru-only">Новые персонажи 6.6</h2>
+    <h2 class="en-only">New Characters 6.6</h2>
+  </div>
+
+  <details class="accordion">
+    <summary><span style="display:flex;align-items:center;gap:10px"><span class="icon-wrap" style="position:relative;display:inline-block;width:28px;height:28px"><img src="https://enka.network/ui/UI_AvatarIcon_Nicole.png" width="28" height="28" style="border-radius:6px;display:block" onerror="this.style.display='none';this.parentElement.querySelector('.fb').style.display='flex'"><span class="fb" style="display:none;width:28px;height:28px;border-radius:6px;background:rgba(255,255,255,0.06);color:#f7b731;font-weight:800;font-size:11px;align-items:center;justify-content:center;text-transform:uppercase;position:absolute;top:0;left:0">N</span></span> Nicole <span class="el el-pyro"><span class="ru-only">Пиро</span><span class="en-only">Pyro</span></span> ★★★★★</span></summary>
+    <div class="accordion-inner">
+      <p class="ru-only">Член Hexenzirkel ("N"). Пиро-саппорт: бафф АТК (макс 4000) + щит + координационные атаки.</p>
+      <p class="en-only">Hexenzirkel member ("N"). Pyro support: ATK buff (max 4000) + shield + coordinated attacks.</p>
+      <div class="build-card"><table>
+        <tr><td class="ru-only">Оружие BIS</td><td class="en-only">BIS Weapon</td><td>Angelos' Heptades (5★)</td></tr>
+        <tr><td class="ru-only">Оружие F2P</td><td class="en-only">F2P Weapon</td><td>TTDS R5 / Oathsworn Eye</td></tr>
+        <tr><td class="ru-only">Артефакты</td><td class="en-only">Artifacts</td><td>Celestial Gift 4шт / Noblesse 4шт</td></tr>
+        <tr><td class="ru-only">Цель</td><td class="en-only">Target</td><td>4000 ATK → ER 200%</td></tr>
+      </table></div>
+    </div>
+  </details>
+
+  <details class="accordion" style="margin-top:8px">
+    <summary><span style="display:flex;align-items:center;gap:10px"><span class="icon-wrap" style="position:relative;display:inline-block;width:28px;height:28px"><img src="https://enka.network/ui/UI_AvatarIcon_Lohen.png" width="28" height="28" style="border-radius:6px;display:block" onerror="this.style.display='none';this.parentElement.querySelector('.fb').style.display='flex'"><span class="fb" style="display:none;width:28px;height:28px;border-radius:6px;background:rgba(255,255,255,0.06);color:#f7b731;font-weight:800;font-size:11px;align-items:center;justify-content:center;text-transform:uppercase;position:absolute;top:0;left:0">L</span></span> Lohen <span class="el el-cryo"><span class="ru-only">Крио</span><span class="en-only">Cryo</span></span> ★★★★★</span></summary>
+    <div class="accordion-inner">
+      <p class="ru-only">Вице-капитан 5-й роты Рыцарей Фавония. Крио-ДД с высоким взрывным уроном.</p>
+      <p class="en-only">Vice-Captain of the 5th Company, Knights of Favonius. Cryo DPS with high burst damage.</p>
+      <div class="build-card"><table>
+        <tr><td class="ru-only">Оружие BIS</td><td class="en-only">BIS Weapon</td><td>Disaster and Remorse (5★)</td></tr>
+        <tr><td class="ru-only">Оружие F2P</td><td class="en-only">F2P Weapon</td><td>The Catch R5 / Favonius Lance</td></tr>
+        <tr><td class="ru-only">Артефакты</td><td class="en-only">Artifacts</td><td>Blizzard Strayer / Emblem 4шт</td></tr>
+        <tr><td class="ru-only">Команда</td><td class="en-only">Team</td><td>Lohen + Citlali + Furina + Xilonen</td></tr>
+      </table></div>
+    </div>
+  </details>
+
+  <details class="accordion" style="margin-top:8px">
+    <summary><span style="display:flex;align-items:center;gap:10px"><span class="icon-wrap" style="position:relative;display:inline-block;width:28px;height:28px"><img src="https://enka.network/ui/UI_AvatarIcon_Prune.png" width="28" height="28" style="border-radius:6px;display:block" onerror="this.style.display='none';this.parentElement.querySelector('.fb').style.display='flex'"><span class="fb" style="display:none;width:28px;height:28px;border-radius:6px;background:rgba(255,255,255,0.06);color:#f7b731;font-weight:800;font-size:11px;align-items:center;justify-content:center;text-transform:uppercase;position:absolute;top:0;left:0">P</span></span> Prune <span class="el el-anemo"><span class="ru-only">Анемо</span><span class="en-only">Anemo</span></span> ★★★★</span></summary>
+    <div class="accordion-inner">
+      <p class="ru-only">Анемо-саппорт с контролем и баффами.</p>
+      <p class="en-only">Anemo support with crowd control and buffs.</p>
+      <div class="build-card"><table>
+        <tr><td class="ru-only">Оружие</td><td class="en-only">Weapon</td><td>Sacrificial Fragments / TTDS R5</td></tr>
+        <tr><td class="ru-only">Артефакты</td><td class="en-only">Artifacts</td><td>Viridescent Venerer 4шт</td></tr>
+      </table></div>
+    </div>
+  </details>
+</div>
+
+<!-- ====== 8. TIPS ====== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">8</div>
+    <h2 class="ru-only">Советы для новичков</h2>
+    <h2 class="en-only">Beginner Tips</h2>
+  </div>
+  <div class="tip-grid" id="tipsContainer"></div>
+</div>
+
+</div>
+
+<div class="footer">
+  <p style="color:#f7b73160;font-weight:600;font-size:13px">Genshin Impact — Ultimate Guide 2026</p>
+  <p>Version 6.6 (Luna) &bull; June 2026 &bull; Nod-Krai</p>
+  <p style="margin-top:6px">Not affiliated with HoYoverse. Fan-made guide.</p>
+</div>
+
+<script>
+// ====== LOCALIZATION ======
+const locale = {
+  el:{ru:{pyro:'Пиро',hydro:'Гидро',anemo:'Анемо',cryo:'Крио',dendro:'Дендро',electro:'Электро',geo:'Гео'},en:{pyro:'Pyro',hydro:'Hydro',anemo:'Anemo',cryo:'Cryo',dendro:'Dendro',electro:'Electro',geo:'Geo'}},
+  role:{ru:{"Main DPS":"Основной ДД","Sub DPS":"Саб-ДД",Support:"Поддержка",Driver:"Драйвер"},en:{"Main DPS":"Main DPS","Sub DPS":"Sub DPS",Support:"Support",Driver:"Driver"}}
+};
+const L = (cat,key) => { const lang = document.body.dataset.lang||'ru'; return locale[cat]?.[lang]?.[key] ?? key; };
+
+// ====== CHARACTER DATABASE ======
+const chars = {
+  splus: [
+    {id:'Neuvillette',el:'hydro',role:'Main DPS'},
+    {id:'Furina',el:'hydro',role:'Sub DPS'},
+    {id:'Mavuika',el:'pyro',role:'Main DPS'},
+    {id:'Kazuha',el:'anemo',role:'Support'},
+    {id:'Xilonen',el:'geo',role:'Support'},
+    {id:'Nahida',el:'dendro',role:'Sub DPS'},
+    {id:'Bennett',el:'pyro',role:'Support'},
+    {id:'Citlali',el:'cryo',role:'Support'},
+    {id:'Nefer',el:'dendro',role:'Main DPS'},
+    {id:'Varka',el:'anemo',role:'Main DPS'},
+    {id:'Skirk',el:'cryo',role:'Main DPS'}
+  ],
+  s: [
+    {id:'Arlecchino',el:'pyro',role:'Main DPS'},
+    {id:'Zibai',el:'geo',role:'Main DPS'},
+    {id:'Columbina',el:'hydro',role:'Sub DPS'},
+    {id:'Ineffa',el:'dendro',role:'Sub DPS'},
+    {id:'Flins',el:'hydro',role:'Main DPS'},
+    {id:'Durin',el:'pyro',role:'Sub DPS'},
+    {id:'Linnea',el:'anemo',role:'Support'},
+    {id:'Escoffier',el:'cryo',role:'Sub DPS'},
+    {id:'Lauma',el:'dendro',role:'Support'},
+    {id:'Yelan',el:'hydro',role:'Sub DPS'},
+    {id:'Zhongli',el:'geo',role:'Support'},
+    {id:'Raiden',el:'electro',role:'Sub DPS'},
+    {id:'Fischl',el:'electro',role:'Sub DPS'}
+  ],
+  a: [
+    {id:'Alhaitham',el:'dendro',role:'Main DPS'},
+    {id:'HuTao',el:'pyro',role:'Main DPS'},
+    {id:'Navia',el:'geo',role:'Main DPS'},
+    {id:'Chasca',el:'anemo',role:'Main DPS'},
+    {id:'Clorinde',el:'electro',role:'Main DPS'},
+    {id:'Kinich',el:'dendro',role:'Main DPS'},
+    {id:'Wriothesley',el:'cryo',role:'Main DPS'},
+    {id:'Ayaka',el:'cryo',role:'Main DPS'},
+    {id:'Wanderer',el:'anemo',role:'Main DPS'},
+    {id:'Nilou',el:'hydro',role:'Support'},
+    {id:'Xingqiu',el:'hydro',role:'Sub DPS'},
+    {id:'Xiangling',el:'pyro',role:'Sub DPS'}
+  ]
+};
+
+function imgError(img) {
+  if(!img || img.dataset.errored) return;
+  img.dataset.errored = '1';
+  const wrap = img.closest('.char-icon-wrap, .icon-wrap') || img.parentElement;
+  if(!wrap) { img.style.display='none'; return; }
+  const fb = wrap.querySelector('.fallback, .fb');
+  if(fb) { img.style.display='none'; fb.style.display='flex'; }
+  else { img.style.display='none'; }
+}
+
+function renderTier(id, list) {
+  const el = document.getElementById(id);
+  const lang = document.body.dataset.lang||'ru';
+  el.innerHTML = list.map(c => {
+    const initial = c.id.charAt(0).toUpperCase();
+    return `<div class="char-card">
+      <div class="char-icon-wrap">
+        <img src="https://enka.network/ui/UI_AvatarIcon_${c.id}.png" alt="${c.id}" loading="lazy" onerror="imgError(this)">
+        <span class="fallback">${initial}</span>
+      </div>
+      <div class="char-info"><div class="char-name">${c.id}</div><span class="el el-${c.el}">${L('el',c.el)}</span></div>
+    </div>`;
+  }).join('');
+}
+renderTier('tier-splus', chars.splus);
+renderTier('tier-s', chars.s);
+renderTier('tier-a', chars.a);
+
+// ====== BUILDS ======
+const builds = [
+  {id:'Neuvillette',el:'hydro',role:'Main DPS',bis:{ru:'Фолиант Вечного Течения',en:'Tome of the Eternal Flow'},f2p:{ru:'Прототип: Янтарь / Нефритовая Корона',en:'Prototype Amber / Sacrificial Jade'},arts:{ru:'Охотник Сумеречного двора 4шт',en:'Marechaussee Hunter 4pc'},stats:{ru:'HP% / Гидро урон% / КРИТ',en:'HP% / Hydro DMG% / CRIT'},er:{ru:'120-140%',en:'120-140%'},team:{ru:'Нёвиллет + Фурина + Кадзуха + Силонен',en:'Neuvillette + Furina + Kazuha + Xilonen'}},
+  {id:'Furina',el:'hydro',role:'Sub DPS',bis:{ru:'Великолепие Спокойных Вод',en:'Splendor of Tranquil Waters'},f2p:{ru:'Жажда Погибели / Паромщик Флёв Сандр',en:'Festering Desire / Fleuve Cendre'},arts:{ru:'Золотая Труппа 4шт',en:'Golden Troupe 4pc'},stats:{ru:'HP% / HP% / КРИТ',en:'HP% / HP% / CRIT'},er:{ru:'160-180%',en:'160-180%'},team:{ru:'Фурина + Нёвиллет + Кадзуха + Силонен',en:'Furina + Neuvillette + Kazuha + Xilonen'}},
+  {id:'Mavuika',el:'pyro',role:'Main DPS',bis:{ru:'Тысяча Пылающих Солнц',en:'Thousand Blazing Suns'},f2p:{ru:'Меч-Змеехвост / Цветок в Латах',en:'Serpent Spine / Mailed Flower'},arts:{ru:'Кодекс Обсидиана 4шт',en:'Obsidian Codex 4pc'},stats:{ru:'АТК% / Пиро урон% / КРИТ',en:'ATK% / Pyro DMG% / CRIT'},er:{ru:'110-130%',en:'110-130%'},team:{ru:'Мавуика + Ситлали + Силонен + Беннет',en:'Mavuika + Citlali + Xilonen + Bennett'}},
+  {id:'Nefer',el:'dendro',role:'Main DPS',bis:{ru:'Лунное Сияние Затмения',en:"Eclipsed Moonlit Grace"},f2p:{ru:'Бродячий Оркестр / Морской Атлас',en:'Widsith / Mappa Mare'},arts:{ru:'Сияние Лунарного Цветка / Позолоченные Сны',en:"Lunarbloom's Radiance / Gilded Dreams"},stats:{ru:'МС / Дендро урон% / КРИТ',en:'EM / Dendro DMG% / CRIT'},er:{ru:'120-140%',en:'120-140%'},team:{ru:'Нефер + Колумбина + Нахида + Лаума',en:'Nefer + Columbina + Nahida + Lauma'}},
+  {id:'Varka',el:'anemo',role:'Main DPS',bis:{ru:'Ветроносный Властелин',en:'Windborne Sovereign'},f2p:{ru:'Меч-Змеехвост',en:'Serpent Spine'},arts:{ru:'Изумрудная Тень 4шт',en:'Viridescent Venerer 4pc'},stats:{ru:'АТК% / Анемо урон% / КРИТ',en:'ATK% / Anemo DMG% / CRIT'},er:{ru:'130-150%',en:'130-150%'},team:{ru:'Варка + Фарузан C6 + Беннет + Силонен',en:'Varka + Faruzan C6 + Bennett + Xilonen'}},
+  {id:'Arlecchino',el:'pyro',role:'Main DPS',bis:{ru:'Отражение Багровой Луны',en:"Crimson Moon's Semblance"},f2p:{ru:'Смертельный Бой / Белая Кисточка R5',en:'Deathmatch / White Tassel R5'},arts:{ru:"Фрагмент гармонической фантазии 4шт",en:'Fragment of Harmonic Whimsy'},stats:{ru:'АТК% / Пиро урон% / КРИТ',en:'ATK% / Pyro DMG% / CRIT'},er:{ru:'110-130%',en:'110-130%'},team:{ru:'Арлекино + Е Лань + Чжун Ли + Беннет',en:'Arlecchino + Yelan + Zhongli + Bennett'}},
+  {id:'Skirk',el:'cryo',role:'Main DPS',bis:{ru:'Лазурный Свет',en:'Azurelight'},f2p:{ru:'Финал Пучины / Аменома Кагэути',en:'Finale of the Deep / Amenoma'},arts:{ru:'Галереи Финала Пучины 4шт',en:'Finale of the Deep Galleries'},stats:{ru:'АТК% / Крио урон% / КРИТ',en:'ATK% / Cryo DMG% / CRIT'},er:{ru:'120-140%',en:'120-140%'},team:{ru:'Скирк + Фурина + Шэнь Хэ + Силонен',en:'Skirk + Furina + Shenhe + Xilonen'}},
+  {id:'Nicole',el:'pyro',role:'Support',bis:{ru:'Гептады Ангелоса',en:"Angelos' Heptades"},f2p:{ru:'Эпос о Властелине Ветров R5 / Поклявшееся Око',en:'TTDS R5 / Oathsworn Eye'},arts:{ru:'Небесный Дар / Церемония Древней Знати',en:'Celestial Gift / Noblesse'},stats:{ru:'4000 АТК → Энергия 200%',en:'4000 ATK \u2192 ER 200%'},er:{ru:'~200%',en:'~200%'},team:{ru:'Варка + Николь + Беннет + Фарузан',en:'Varka + Nicole + Bennett + Faruzan'}},
+  {id:'Kazuha',el:'anemo',role:'Support',bis:{ru:'Вольная Клятва',en:'Freedom-Sworn'},f2p:{ru:'Железное жало / Ритуальный Меч',en:'Iron Sting / Sacrificial Sword'},arts:{ru:'Изумрудная Тень 4шт',en:'Viridescent Venerer 4pc'},stats:{ru:'МС / МС / КРИТ',en:'EM / EM / CRIT'},er:{ru:'160-180%',en:'160-180%'},team:{ru:'Кадзуха + Нёвиллет + Фурина + Силонен',en:'Kazuha + Neuvillette + Furina + Xilonen'}},
+  {id:'Xilonen',el:'geo',role:'Support',bis:{ru:'Песнь Переплетённых Копий',en:'Peak Patrol Song'},f2p:{ru:'Нефритовый Корпус',en:'Jade Shield'},arts:{ru:'Стойкость Миллелита 4шт / Кодекс Обсидиана',en:'Tenacity of the Millelith 4pc / Obsidian Codex'},stats:{ru:'ЗАЩ / ЗАЩ / КРИТ',en:'DEF% / DEF% / CRIT'},er:{ru:'140-160%',en:'140-160%'},team:{ru:'Силонен + Фурина + Нёвиллет + Кадзуха',en:'Xilonen + Furina + Neuvillette + Kazuha'}},
+  {id:'Nahida',el:'dendro',role:'Sub DPS',bis:{ru:'Тысяча Снов',en:"A Thousand Floating Dreams"},f2p:{ru:'Морской Атлас / Волшебный свиток',en:'Mappa Mare / Magic Guide'},arts:{ru:'Позолоченные Сны 4шт / Воспоминания дремучего леса',en:'Gilded Dreams 4pc / Deepwood Memories'},stats:{ru:'МС / Дендро урон% / КРИТ',en:'EM / Dendro DMG% / CRIT'},er:{ru:'120-140%',en:'120-140%'},team:{ru:'Нахида + Нефер + Колумбина + Лаума',en:'Nahida + Nefer + Columbina + Lauma'}},
+  {id:'Bennett',el:'pyro',role:'Support',bis:{ru:'Небесный Меч',en:'Skyward Blade'},f2p:{ru:'Меч Фавония / Ритуальный Меч',en:'Favonius Sword / Sacrificial Sword'},arts:{ru:'Церемония Древней Знати 4шт',en:'Noblesse Oblige 4pc'},stats:{ru:'АТК% / Пиро урон% / КРИТ',en:'ATK% / Pyro DMG% / CRIT'},er:{ru:'200-240%',en:'200-240%'},team:{ru:'Беннет + Арлекино + Е Лань + Чжун Ли',en:'Bennett + Arlecchino + Yelan + Zhongli'}},
+  {id:'Citlali',el:'cryo',role:'Support',bis:{ru:'Благословение Полуночного Неба',en:"Starcaller's Watch"},f2p:{ru:'Сокровище Облачных Морей',en:'Treasure of the Cloudy Seas'},arts:{ru:'Церемония Древней Знати / Стойкость Миллелита',en:'Noblesse Oblige / Tenacity of the Millelith'},stats:{ru:'МС / МС / МС',en:'EM / EM / EM'},er:{ru:'160-190%',en:'160-190%'},team:{ru:'Ситлали + Мавуика + Силонен + Беннет',en:'Citlali + Mavuika + Xilonen + Bennett'}},
+  {id:'Zibai',el:'geo',role:'Main DPS',bis:{ru:'Твердыня Вечного Камня',en:'Eternal Stone Bastion'},f2p:{ru:'Урна Света / Меч-Змеехвост',en:'Lightsource Vessel / Serpent Spine'},arts:{ru:'Кодекс Обсидиана / Архаичный Камень',en:'Obsidian Codex / Archaic Petra'},stats:{ru:'АТК% / Гео урон% / КРИТ',en:'ATK% / Geo DMG% / CRIT'},er:{ru:'120-140%',en:'120-140%'},team:{ru:'Зибай + Фурина + Кадзуха + Силонен',en:'Zibai + Furina + Kazuha + Xilonen'}},
+  {id:'Columbina',el:'hydro',role:'Sub DPS',bis:{ru:'Безмолвие Глубин',en:'Silence of the Depths'},f2p:{ru:'Нефритовая Корона / Ритуальный Танец',en:'Sacrificial Jade / Widsith'},arts:{ru:'Золотая Труппа 4шт',en:'Golden Troupe 4pc'},stats:{ru:'HP% / Гидро урон% / КРИТ',en:'HP% / Hydro DMG% / CRIT'},er:{ru:'130-150%',en:'130-150%'},team:{ru:'Колумбина + Нефер + Нахида + Лаума',en:'Columbina + Nefer + Nahida + Lauma'}},
+  {id:'Yelan',el:'hydro',role:'Sub DPS',bis:{ru:'Аква Симулякрум',en:'Aqua Simulacra'},f2p:{ru:'Лук Фавония',en:'Favonius Warbow'},arts:{ru:'Эмблема Рассечённой Судьбы 4шт',en:'Emblem of Severed Fate 4pc'},stats:{ru:'HP% / Гидро урон% / КРИТ',en:'HP% / Hydro DMG% / CRIT'},er:{ru:'180-200%',en:'180-200%'},team:{ru:'Е Лань + Арлекино + Чжун Ли + Беннет',en:'Yelan + Arlecchino + Zhongli + Bennett'}},
+  {id:'Zhongli',el:'geo',role:'Support',bis:{ru:'Копьё Хомы',en:"Staff of Homa"},f2p:{ru:'Копьё Фавония / Чёрная Кисточка',en:'Favonius Lance / Black Tassel'},arts:{ru:'Стойкость Миллелита 4шт',en:'Tenacity of the Millelith 4pc'},stats:{ru:'HP% / HP% / HP%',en:'HP% / HP% / HP%'},er:{ru:'120%',en:'120%'},team:{ru:'Чжун Ли + Арлекино + Е Лань + Беннет',en:'Zhongli + Arlecchino + Yelan + Bennett'}},
+  {id:'Raiden',el:'electro',role:'Sub DPS',bis:{ru:'Сияющая Жатва',en:'Engulfing Lightning'},f2p:{ru:'Улов R5',en:'The Catch R5'},arts:{ru:'Эмблема Рассечённой Судьбы 4шт',en:'Emblem of Severed Fate 4pc'},stats:{ru:'АТК% / Электро урон% / КРИТ',en:'ATK% / Electro DMG% / CRIT'},er:{ru:'230-270%',en:'230-270%'},team:{ru:'Райдэн + Сян Лин + Син Цю + Беннет',en:'Raiden + Xiangling + Xingqiu + Bennett'}},
+  {id:'Fischl',el:'electro',role:'Sub DPS',bis:{ru:'Элегия погибели',en:'Elegy for the End'},f2p:{ru:'Лук Фавония',en:'Favonius Warbow'},arts:{ru:'Золотая Труппа 4шт',en:'Golden Troupe 4pc'},stats:{ru:'АТК% / Электро урон% / КРИТ',en:'ATK% / Electro DMG% / CRIT'},er:{ru:'130%',en:'130%'},team:{ru:'Фишль + Арлекино + Шеврёз + Беннет',en:'Fischl + Arlecchino + Chevreuse + Bennett'}},
+  {id:'Alhaitham',el:'dendro',role:'Main DPS',bis:{ru:'Свет Лиственного Разреза',en:"Light of Foliar Incision"},f2p:{ru:'Железное жало / Ритуальный Меч',en:'Iron Sting / Sacrificial Sword'},arts:{ru:'Воспоминания дремучего леса / Позолоченные Сны 4шт',en:'Deepwood Memories / Gilded Dreams 4pc'},stats:{ru:'МС / Дендро урон% / КРИТ',en:'EM / Dendro DMG% / CRIT'},er:{ru:'120-140%',en:'120-140%'},team:{ru:'Аль-Хайтам + Фурина + Кадзуха + Силонен',en:'Alhaitham + Furina + Kazuha + Xilonen'}},
+  {id:'HuTao',el:'pyro',role:'Main DPS',bis:{ru:'Посох Хомы',en:"Staff of Homa"},f2p:{ru:'Белая Кисточка R5 / Смертельный Бой',en:'White Tassel R5 / Deathmatch'},arts:{ru:'Фрагмент гармонической фантазии 4шт',en:"Fragment of Harmonic Whimsy 4pc"},stats:{ru:'HP% / Пиро урон% / КРИТ',en:'HP% / Pyro DMG% / CRIT'},er:{ru:'120%',en:'120%'},team:{ru:'Ху Тао + Е Лань + Чжун Ли + Фурина',en:'Hu Tao + Yelan + Zhongli + Furina'}},
+  {id:'Ayaka',el:'cryo',role:'Main DPS',bis:{ru:'Рассекающий Туман',en:'Mistsplitter Reforged'},f2p:{ru:'Аменома Кагэути / Чёрный Меч',en:'Amenoma Kageuchi / Black Sword'},arts:{ru:'Заблудший в Метели 4шт',en:'Blizzard Strayer 4pc'},stats:{ru:'АТК% / Крио урон% / КРИТ',en:'ATK% / Cryo DMG% / CRIT'},er:{ru:'130-140%',en:'130-140%'},team:{ru:'Аяка + Фурина + Кадзуха + Шэнь Хэ',en:'Ayaka + Furina + Kazuha + Shenhe'}},
+  {id:'Xingqiu',el:'hydro',role:'Sub DPS',bis:{ru:'Нефритовый Резак',en:"Jade Cutter"},f2p:{ru:'Ритуальный Меч / Меч Фавония',en:'Sacrificial Sword / Favonius Sword'},arts:{ru:'Эмблема Рассечённой Судьбы 4шт',en:'Emblem of Severed Fate 4pc'},stats:{ru:'АТК% / Гидро урон% / КРИТ',en:'ATK% / Hydro DMG% / CRIT'},er:{ru:'180-200%',en:'180-200%'},team:{ru:'Син Цю + Сян Лин + Беннет + Райдэн',en:'Xingqiu + Xiangling + Bennett + Raiden'}},
+  {id:'Xiangling',el:'pyro',role:'Sub DPS',bis:{ru:'Сияющая Жатва',en:'Engulfing Lightning'},f2p:{ru:'Улов R5 / Копьё Фавония',en:'The Catch R5 / Favonius Lance'},arts:{ru:'Эмблема Рассечённой Судьбы 4шт',en:'Emblem of Severed Fate 4pc'},stats:{ru:'АТК% / Пиро урон% / КРИТ',en:'ATK% / Pyro DMG% / CRIT'},er:{ru:'200-220%',en:'200-220%'},team:{ru:'Сян Лин + Син Цю + Беннет + Райдэн',en:'Xiangling + Xingqiu + Bennett + Raiden'}},
+  {id:'Wriothesley',el:'cryo',role:'Main DPS',bis:{ru:'Поток Истины',en:"Flow of Truth"},f2p:{ru:'Чёрный Меч / Шип Небес',en:'Black Sword / Ballad of the Boundless'},arts:{ru:'Заблудший в Метели 4шт / Охотник Сумеречного двора',en:'Blizzard Strayer 4pc / Marechaussee Hunter'},stats:{ru:'АТК% / Крио урон% / КРИТ',en:'ATK% / Cryo DMG% / CRIT'},er:{ru:'120-140%',en:'120-140%'},team:{ru:'Ризли + Фурина + Кадзуха + Силонен',en:'Wriothesley + Furina + Kazuha + Xilonen'}},
+  {id:'Navia',el:'geo',role:'Main DPS',bis:{ru:'Песнь Переплетённых Копий',en:'Peak Patrol Song'},f2p:{ru:'Меч-Змеехвост / Белая Кисточка',en:'Serpent Spine / White Tassel'},arts:{ru:'Кодекс Обсидиана 4шт',en:'Obsidian Codex 4pc'},stats:{ru:'АТК% / Гео урон% / КРИТ',en:'ATK% / Geo DMG% / CRIT'},er:{ru:'130-150%',en:'130-150%'},team:{ru:'Навия + Фурина + Кадзуха + Беннет',en:'Navia + Furina + Kazuha + Bennett'}},
+  {id:'Clorinde',el:'electro',role:'Main DPS',bis:{ru:'Поглощение Теней',en:"Absolution"},f2p:{ru:'Меч Фавония',en:'Favonius Sword'},arts:{ru:'Фрагмент гармонической фантазии 4шт',en:"Fragment of Harmonic Whimsy 4pc"},stats:{ru:'АТК% / Электро урон% / КРИТ',en:'ATK% / Electro DMG% / CRIT'},er:{ru:'120%',en:'120%'},team:{ru:'Клоринда + Фишль + Фурина + Силонен',en:'Clorinde + Fischl + Furina + Xilonen'}},
+  {id:'Wanderer',el:'anemo',role:'Main DPS',bis:{ru:'Эпос о Властелине Ветров',en:"Tulaytullah's Remembrance"},f2p:{ru:'Шип Небес / Бродячий Оркестр',en:'Ballad of the Boundless / Widsith'},arts:{ru:'Изумрудная Тень 4шт / Хроники Чертогов Пустыни',en:'Viridescent Venerer 4pc / Desert Pavilion Chronicle'},stats:{ru:'АТК% / Анемо урон% / КРИТ',en:'ATK% / Anemo DMG% / CRIT'},er:{ru:'120-140%',en:'120-140%'},team:{ru:'Странник + Фурина + Кадзуха + Беннет',en:'Wanderer + Furina + Kazuha + Bennett'}},
+  {id:'Nilou',el:'hydro',role:'Support',bis:{ru:'Ключ Крон Природы',en:"Key of Khaj-Nisut"},f2p:{ru:'Железное жало / Бродячий Оркестр',en:'Iron Sting / Widsith'},arts:{ru:'Позолоченные Сны 4шт',en:'Gilded Dreams 4pc'},stats:{ru:'HP% / HP% / HP%',en:'HP% / HP% / HP%'},er:{ru:'120%',en:'120%'},team:{ru:'Нилу + Нахида + Колумбина + Яо Яо',en:'Nilou + Nahida + Columbina + Yaoyao'}},
+  {id:'Chasca',el:'anemo',role:'Main DPS',bis:{ru:'Астральные Крылья',en:'Astral Wings'},f2p:{ru:'Бесструнный / Лук Фавония',en:'The Stringless / Favonius Warbow'},arts:{ru:'Изумрудная Тень 4шт',en:'Viridescent Venerer 4pc'},stats:{ru:'АТК% / Анемо урон% / КРИТ',en:'ATK% / Anemo DMG% / CRIT'},er:{ru:'130%',en:'130%'},team:{ru:'Часка + Фурина + Кадзуха + Беннет',en:'Chasca + Furina + Kazuha + Bennett'}},
+  {id:'Kinich',el:'dendro',role:'Main DPS',bis:{ru:'Клык Зелёного Трона',en:"Fang of the Green Throne"},f2p:{ru:'Меч-Змеехвост / Ритуальный Меч',en:'Serpent Spine / Sacrificial Sword'},arts:{ru:'Воспоминания дремучего леса / Позолоченные Сны 4шт',en:'Deepwood Memories / Gilded Dreams 4pc'},stats:{ru:'АТК% / Дендро урон% / КРИТ',en:'ATK% / Dendro DMG% / CRIT'},er:{ru:'130%',en:'130%'},team:{ru:'Кинич + Фурина + Кадзуха + Силонен',en:'Kinich + Furina + Kazuha + Xilonen'}},
+  {id:'Ineffa',el:'dendro',role:'Sub DPS',bis:{ru:'Шёпот Природы',en:"Nature's Whisper"},f2p:{ru:'Морской Атлас / Ритуальный Танец',en:'Mappa Mare / Widsith'},arts:{ru:'Позолоченные Сны 4шт',en:'Gilded Dreams 4pc'},stats:{ru:'МС / Дендро урон% / КРИТ',en:'EM / Dendro DMG% / CRIT'},er:{ru:'140%',en:'140%'},team:{ru:'Инеффа + Нефер + Нахида + Лаума',en:'Ineffa + Nefer + Nahida + Lauma'}},
+  {id:'Flins',el:'hydro',role:'Main DPS',bis:{ru:'Поток Вечности',en:"Eternal Flow"},f2p:{ru:'Нефритовая Корона / Прототип Янтарь',en:'Sacrificial Jade / Prototype Amber'},arts:{ru:'Охотник Сумеречного двора 4шт',en:'Marechaussee Hunter 4pc'},stats:{ru:'HP% / Гидро урон% / КРИТ',en:'HP% / Hydro DMG% / CRIT'},er:{ru:'130%',en:'130%'},team:{ru:'Флинс + Фурина + Кадзуха + Силонен',en:'Flins + Furina + Kazuha + Xilonen'}},
+  {id:'Durin',el:'pyro',role:'Sub DPS',bis:{ru:'Коготь Дракона',en:"Dragon's Claw"},f2p:{ru:'Копьё Фавония / Улов',en:'Favonius Lance / The Catch'},arts:{ru:'Эмблема Рассечённой Судьбы 4шт',en:'Emblem of Severed Fate 4pc'},stats:{ru:'АТК% / Пиро урон% / КРИТ',en:'ATK% / Pyro DMG% / CRIT'},er:{ru:'180%',en:'180%'},team:{ru:'Дюрин + Нефер + Нахида + Беннет',en:'Durin + Nefer + Nahida + Bennett'}},
+  {id:'Escoffier',el:'cryo',role:'Sub DPS',bis:{ru:'Ледяной Шёпот',en:"Icy Whisper"},f2p:{ru:'Меч Фавония / Ритуальный Меч',en:'Favonius Sword / Sacrificial Sword'},arts:{ru:'Эмблема Рассечённой Судьбы 4шт',en:'Emblem of Severed Fate 4pc'},stats:{ru:'АТК% / Крио урон% / КРИТ',en:'ATK% / Cryo DMG% / CRIT'},er:{ru:'170%',en:'170%'},team:{ru:'Эскофье + Аяка + Кадзуха + Шэнь Хэ',en:'Escoffier + Ayaka + Kazuha + Shenhe'}},
+  {id:'Lauma',el:'dendro',role:'Support',bis:{ru:'Корень Мира',en:"World Root"},f2p:{ru:'Эпос о Властелине Ветров R5',en:'TTDS R5'},arts:{ru:'Воспоминания дремучего леса 4шт',en:'Deepwood Memories 4pc'},stats:{ru:'МС / МС / МС',en:'EM / EM / EM'},er:{ru:'200%',en:'200%'},team:{ru:'Лаума + Нефер + Колумбина + Нахида',en:'Lauma + Nefer + Columbina + Nahida'}},
+  {id:'Linnea',el:'anemo',role:'Support',bis:{ru:'Крылья Вольного Ветра',en:"Free Wind Wings"},f2p:{ru:'Ритуальный Меч / Меч Фавония',en:'Sacrificial Sword / Favonius Sword'},arts:{ru:'Изумрудная Тень 4шт',en:'Viridescent Venerer 4pc'},stats:{ru:'МС / МС / МС',en:'EM / EM / EM'},er:{ru:'180%',en:'180%'},team:{ru:'Линнея + Варка + Фарузан + Беннет',en:'Linnea + Varka + Faruzan + Bennett'}}
+];
+
+function val(v) { const lang = document.body.dataset.lang||'ru'; return typeof v === 'object' ? (v[lang] || v.en || v) : v; }
+
+function renderBuilds() {
+  const c = document.getElementById('builds-container');
+  const lang = document.body.dataset.lang||'ru';
+  c.innerHTML = builds.map(b => {
+    const init = b.id.charAt(0).toUpperCase();
+    return `
+    <details class="accordion">
+      <summary><span style="display:flex;align-items:center;gap:10px"><span class="icon-wrap" style="position:relative;display:inline-block;width:28px;height:28px;flex-shrink:0"><img src="https://enka.network/ui/UI_AvatarIcon_${b.id}.png" width="28" height="28" style="border-radius:6px;display:block" onerror="this.style.display='none';this.parentElement.querySelector('.fb').style.display='flex'"><span class="fb" style="display:none;width:28px;height:28px;border-radius:6px;background:rgba(255,255,255,0.06);color:#f7b731;font-weight:800;font-size:11px;align-items:center;justify-content:center;text-transform:uppercase;position:absolute;top:0;left:0">${init}</span></span> ${b.id} <span class="el el-${b.el}">${L('el',b.el)}</span> <span style="color:#888;font-weight:400;font-size:12px">${L('role',b.role)}</span></span></summary>
+      <div class="accordion-inner">
+        <div class="build-card">
+          <table>
+            <tr><td class="ru-only">Оружие BIS</td><td class="en-only">BIS Weapon</td><td>${val(b.bis)} <span style="color:#888">5\u2605</span></td></tr>
+            <tr><td class="ru-only">Оружие F2P</td><td class="en-only">F2P Weapon</td><td>${val(b.f2p)}</td></tr>
+            <tr><td class="ru-only">Артефакты</td><td class="en-only">Artifacts</td><td>${val(b.arts)}</td></tr>
+            <tr><td class="ru-only">Статы</td><td class="en-only">Stats</td><td>${val(b.stats)}</td></tr>
+            <tr><td class="ru-only">Восст. энергии</td><td class="en-only">Energy Recharge</td><td>${val(b.er)}</td></tr>
+            <tr><td class="ru-only">Команда</td><td class="en-only">Best Team</td><td>${val(b.team)}</td></tr>
+          </table>
+        </div>
+      </div>
+    </details>`;
+  }).join('');
+}
+renderBuilds();
+
+// ====== TEAMS ======
+const teams = [
+  {name:{ru:'Нёвиллет Гиперкерри',en:'Neuvillette Hypercarry'},tier:'S+',embers:[{id:'Neuvillette',role:'Main DPS'},{id:'Furina',role:'Sub DPS'},{id:'Kazuha',role:'Support'},{id:'Xilonen',role:'Support'}]},
+  {name:{ru:'Мавуика Таяние',en:'Mavuika Melt'},tier:'S+',embers:[{id:'Mavuika',role:'Main DPS'},{id:'Citlali',role:'Support'},{id:'Xilonen',role:'Support'},{id:'Bennett',role:'Support'}]},
+  {name:{ru:'Нефер Лунарблум',en:'Nefer Lunarbloom'},tier:'S',embers:[{id:'Nefer',role:'Main DPS'},{id:'Columbina',role:'Sub DPS'},{id:'Nahida',role:'Sub DPS'},{id:'Lauma',role:'Support'}]},
+  {name:{ru:'Арлекино Перегрузка',en:'Arlecchino Overload'},tier:'S',embers:[{id:'Arlecchino',role:'Main DPS'},{id:'Chevreuse',role:'Support'},{id:'Fischl',role:'Sub DPS'},{id:'Bennett',role:'Support'}]},
+  {name:{ru:'Варка Гиперкерри',en:'Varka Hypercarry'},tier:'S',embers:[{id:'Varka',role:'Main DPS'},{id:'Faruzan',role:'Support'},{id:'Bennett',role:'Support'},{id:'Xilonen',role:'Support'}]},
+  {name:{ru:'Националка (Райдэн)',en:'National (Raiden)'},tier:'A+',embers:[{id:'Raiden',role:'Driver'},{id:'Xiangling',role:'Sub DPS'},{id:'Xingqiu',role:'Sub DPS'},{id:'Bennett',role:'Support'}]}
+];
+
+function renderTeams() {
+  const c = document.getElementById('teams-container');
+  const lang = document.body.dataset.lang||'ru';
+  c.innerHTML = teams.map(t => `
+    <div class="team-card">
+      <h4>${val(t.name)} <span class="el" style="background:rgba(247,183,49,0.12);color:#f7b731">${t.tier}</span></h4>
+      <div class="team-members">
+        ${t.embers.map(m => {
+          const init = m.id.charAt(0).toUpperCase();
+          return `
+          <div class="team-member">
+            <div class="icon-wrap">
+              <img src="https://enka.network/ui/UI_AvatarIcon_${m.id}.png" onerror="this.style.display='none';this.parentElement.querySelector('.fb').style.display='flex'" loading="lazy">
+              <span class="fb" style="display:none;width:28px;height:28px;border-radius:6px;background:rgba(255,255,255,0.06);color:#f7b731;font-weight:800;font-size:11px;align-items:center;justify-content:center;text-transform:uppercase;position:absolute;top:0;left:0">${init}</span>
+            </div>
+            <span>${m.id} <span style="color:#666;font-size:11px">${L('role',m.role)}</span></span>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+renderTeams();
+
+// ====== TIPS ======
+const tipsRU = [
+  {num:'01',title:'Примогемы — только на ивентовые баннеры',text:'Не трать на стандартный баннер. Используй только Acquaint Fate, которые даёт игра.'},
+  {num:'02',title:'Лучшие 4\u2605 для старта',text:'Bennett, Xingqiu, Xiangling, Fischl, Sucrose — они остаются топовыми даже в 2026.'},
+  {num:'03',title:'Смолу — на таланты и оружие',text:'Артефакты начинай фармить только после AR45. До этого — таланты и оружие.'},
+  {num:'04',title:'Welkin Moon — лучший донат',text:'$5 = 3000 примогемов за 30 дней. Battle Pass даёт оружие + ресурсы.'},
+  {num:'05',title:'Следи за расписанием баннеров',text:'Проверяй утечки на Reddit перед тратой примогемов.'},
+  {num:'06',title:'Собирай всё в мире',text:'Сундуки, окулусы, телепорты — дают сотни молитв в сумме. Не пропускай.'},
+  {num:'07',title:'Делай дейлики каждый день',text:'60 примогемов \u00d7 30 дней = 1800/мес. Пропуск = потеря 10+ молитв.'},
+  {num:'08',title:'Не фармь артефакты до AR45',text:'Только с AR45 гарантирован 5\u2605 артефакт из сундука.'}
+];
+
+const tipsEN = [
+  {num:'01',title:'Primogems \u2192 limited banners only',text:'Don\'t waste on standard banner. Only use Acquaint Fates from free sources.'},
+  {num:'02',title:'Best 4\u2605 to build first',text:'Bennett, Xingqiu, Xiangling, Fischl, Sucrose — still meta in 2026.'},
+  {num:'03',title:'Resin priority',text:'Talents > Weapons > Artifacts (only after AR45). Don\'t farm artifacts before.'},
+  {num:'04',title:'Welkin Moon is best value',text:'$5 = 3000 primogems over 30 days. Battle Pass gives weapons + resources.'},
+  {num:'05',title:'Check banner schedule',text:'Check leaks on Reddit before spending primogems.'},
+  {num:'06',title:'Explore everything',text:'Chests, oculi, waypoints — hundreds of fates total. Don\'t skip them.'},
+  {num:'07',title:'Do dailies every day',text:'60 primogems \u00d7 30 days = 1800/mo. Missing = losing 10+ fates.'},
+  {num:'08',title:'Don\'t farm artifacts before AR45',text:'Guaranteed 5\u2605 artifacts only drop after AR45.'}
+];
+
+function renderTips(lang) {
+  const tips = lang === 'ru' ? tipsRU : tipsEN;
+  document.getElementById('tipsContainer').innerHTML = tips.map(t => `
+    <div class="tip-card">
+      <div class="tip-num">${t.num}</div>
+      <p><strong>${t.title}</strong><br>${t.text}</p>
+    </div>
+  `).join('');
+}
+renderTips('ru');
+
+// ====== MAP ======
+function setMapMarkers(names) {
+  document.getElementById('interactiveMap').src = 
+    `https://genshin-impact-map.appsample.com/location?names=${encodeURIComponent(names)}&no_heading=1`;
+  document.querySelectorAll('#mapControls .map-btn').forEach(b => b.classList.remove('active'));
+  if(event && event.target) event.target.classList.add('active');
+}
+
+// ====== LANGUAGE SWITCH ======
+function switchLang(lang) {
+  document.body.dataset.lang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    if(b.textContent.toLowerCase().includes(lang === 'ru' ? 'рус' : 'english')) b.classList.add('active');
+  });
+  renderTier('tier-splus', chars.splus);
+  renderTier('tier-s', chars.s);
+  renderTier('tier-a', chars.a);
+  renderBuilds();
+  renderTeams();
+  renderTips(lang);
+}
+</script>
+
+</body>
+</html>
